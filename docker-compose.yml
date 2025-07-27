@@ -1,0 +1,20 @@
+services:
+  scraper:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: scraper-microservice
+    # Map port 3000 inside the container to port 3000 on the host
+    ports:
+      - "3000:3000"
+    # Load environment variables from the .env file
+    env_file:
+      - ./.env
+    # Restart the container if it exits unexpectedly
+    restart: always
+    # Optional: Add health check for robust deployments
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"] # Assuming a /health endpoint
+      interval: 30s
+      timeout: 10s
+      retries: 3

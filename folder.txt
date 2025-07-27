@@ -1,0 +1,62 @@
+scraper-microservice/
+├── src/
+│   ├── api/
+│   │   ├── controllers/
+│   │   │   └── scrapeController.js
+│   │   ├── routes/
+│   │   │   └── scrapeRoutes.js
+│   │   ├── middlewares/
+│   │   │   ├── validationMiddleware.js
+│   │   │   └── errorHandler.js
+│   │   └── validators/
+│   │       └── scrapeRequestValidator.js
+│   │
+│   ├── core/
+│   │   ├── scraper.js
+│   │   ├── processor.js
+│   │   └── queueManager.js
+│   │
+│   ├── db/
+│   │   ├── models/
+│   │   │   └── ScrapedPath.js
+│   │   ├── migrations/
+│   │   │   └── 20230727_create_scraped_paths_table.js
+│   │   ├── repositories/
+│   │   │   └── scrapedPathRepository.js
+│   │   └── config.js
+│   │
+│   ├── services/
+│   │   ├── aiService.js
+│   │   └── mainService.js
+│   │
+│   ├── utils/
+│   │   ├── logger.js
+│   │   ├── constants.js
+│   │   └── errors.js
+│   │
+│   ├── config/
+│   │   └── index.js
+│   │
+│   └── app.js
+│
+├── tests/
+│   ├── unit/
+│   │   ├── api/
+│   │   ├── core/
+│   │   ├── db/
+│   │   └── services/
+│   ├── integration/
+│   │   └── endToEnd.test.js
+│   ├── e2e/
+│   │   └── scraper.e2e.test.js
+│
+├── .env
+├── Dockerfile
+├── package.json
+├── package-lock.json
+└── README.md
+
+
+
+
+

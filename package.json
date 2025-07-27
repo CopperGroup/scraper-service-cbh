@@ -1,0 +1,43 @@
+{
+    "name": "scraper-microservice",
+    "version": "1.0.0",
+    "description": "A microservice for scraping website content, processing with AI, and updating a main service.",
+    "main": "src/app.js",
+    "scripts": {
+        "start": "node src/app.js",
+        "dev": "nodemon src/app.js",
+        "test": "jest",
+        "lint": "eslint src/",
+        "migrate:make": "sequelize-cli migration:generate --name",
+        "migrate:up": "sequelize-cli db:migrate",
+        "migrate:down": "sequelize-cli db:migrate:undo"
+    },
+    "keywords": [
+        "scraper",
+        "microservice",
+        "nodejs",
+        "postgresql",
+        "ai"
+    ],
+    "author": "Your Name",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^1.x.x",
+        "cheerio": "^1.0.0-rc.x",
+        "cors": "^2.8.5",
+        "dotenv": "^16.x.x",
+        "express": "^4.x.x",
+        "joi": "^17.13.3",
+        "pg": "^8.x.x",
+        "pg-hstore": "^2.3.x",
+        "sequelize": "^6.x.x",
+        "winston": "^3.x.x"
+    },
+    "devDependencies": {
+        "eslint": "^8.x.x",
+        "jest": "^29.x.x",
+        "nodemon": "^3.x.x",
+        "sequelize-cli": "^6.x.x",
+        "supertest": "^7.1.4"
+    }
+}
