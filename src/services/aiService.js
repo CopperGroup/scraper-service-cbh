@@ -47,12 +47,12 @@ class AiService {
       const response = await axios.post(url, {
         freshSummary,
         previousSummary,
-        scrapedData // Provide raw data for AI to use as context for merging
+        scrapedData: {...scrapedData, path: ""}, // Provide raw data for AI to use as context for merging
       }
         // REMOVED: , { timeout: config.scraperTimeoutMs }
       );
       if (response.status !== 200) {
-        throw new Error(`AI service returned non-200 status: ${response.status}`);
+        throw new Error(`AI service returned non-200 status: ${response}`);
       }
       logger.info('Successfully received merged summary from AI service.');
       return response.data; // Assuming response.data contains the merged summary
