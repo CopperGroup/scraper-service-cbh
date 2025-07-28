@@ -40,7 +40,7 @@ class AiService {
    * @returns {Promise<object>} The response from the AI service, expected to contain a 'mergedSummary' field.
    * @throws {ServiceError} If the AI service call fails.
    */
-  static async mergeSummaries(freshSummary, previousSummary, scrapedData) {
+  static async mergeSummaries(freshSummary, previousSummary, scrapedData, websiteId) {
     const url = `${AI_SERVICE_BASE_URL}/merge`;
     logger.info(`Calling AI service for merging summaries: ${url}`);
     try {
@@ -48,6 +48,7 @@ class AiService {
         freshSummary,
         previousSummary,
         scrapedData: {...scrapedData, path: ""}, // Provide raw data for AI to use as context for merging
+        websiteId
       }
         // REMOVED: , { timeout: config.scraperTimeoutMs }
       );

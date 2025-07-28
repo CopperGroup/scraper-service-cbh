@@ -43,7 +43,7 @@ class Processor {
       logger.info(`Received previous AI summary from main service for ID: ${id}`);
 
       // 5. Send fresh and previous data to AI service for merging
-      const aiMergeResponse = await AiService.mergeSummaries(freshAiSummary, previousAiSummary, scrapedData);
+      const aiMergeResponse = await AiService.mergeSummaries(freshAiSummary, previousAiSummary, scrapedData, websiteId);
       const newMergedSummary = aiMergeResponse.mergedSummary; // Assuming AI service returns { mergedSummary: "..." }
       logger.info(`Received merged AI summary for ID: ${id}`);
 
