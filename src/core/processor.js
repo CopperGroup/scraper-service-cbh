@@ -33,7 +33,7 @@ class Processor {
       logger.info(`Page scraped successfully for ID: ${id}. Data size: ${JSON.stringify(scrapedData).length} bytes`);
 
       // 3. Send extracted data to AI service for initial summary
-      const aiSummaryResponse = await AiService.getSummary(scrapedData, pathName);
+      const aiSummaryResponse = await AiService.getSummary(scrapedData, pathName, websiteId);
       const freshAiSummary = aiSummaryResponse.summary; // Assuming AI service returns { summary: "..." }
       logger.info(`Received fresh AI summary for ID: ${id}`);
 

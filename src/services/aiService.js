@@ -14,11 +14,11 @@ class AiService {
    * @returns {Promise<object>} The response from the AI service, expected to contain a 'summary' field.
    * @throws {ServiceError} If the AI service call fails.
    */
-  static async getSummary(scrapedData, path) {
+  static async getSummary(scrapedData, path, websiteId ) {
     const url = `${AI_SERVICE_BASE_URL}/summary`;
     logger.info(`Calling AI service for summary: ${url}`);
     try {
-      const response = await axios.post(url, { data: {...scrapedData, path} }
+      const response = await axios.post(url, { data: {...scrapedData, path}, websiteId: websiteId.toString() }
         // REMOVED: , { timeout: config.scraperTimeoutMs }
       );
       if (response.status !== 200) {
